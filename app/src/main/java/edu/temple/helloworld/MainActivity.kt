@@ -24,7 +24,11 @@ class MainActivity : AppCompatActivity() {
 
 
         findViewById<Button>(R.id.clickMeButton).setOnClickListener {
-            displayTextView.text = "Hello, ${findViewById<EditText>(R.id.nameEditText).text}"
+            if (nameEditText.length() != 0) {
+                displayTextView.text = "Hello, ${findViewById<EditText>(R.id.nameEditText).text}"
+            } else {
+                nameEditText.setError("A name is required")
+            }
         }
 
 
